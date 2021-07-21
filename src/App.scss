@@ -1,0 +1,367 @@
+
+@font-face {
+    font-family: 'geomanist';
+    src: url('./assets/fonts/geomanist/geomanist-book.woff2') format('woff2'),
+      url('./assets/fonts/geomanist/geomanist-book.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  
+  @font-face {
+    font-family: 'cornerstone';
+    src: url('./assets/fonts/cornerstone.woff2') format('woff2'),
+      url('./assets/fonts/cornerstone.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+/* // Colors */
+$greenSeaweed: rgba(2, 128, 144, 1);
+$blueQueen: rgba(69, 105, 144, 1);
+$redFire: rgba(244, 91, 105, 1);
+
+// Fonts
+$fontAsap: 'Asap', sans-serif;
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background:  #101114;
+  font-family: 'geomanist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+}
+
+
+header {
+    text-align: center;
+  
+    h1 {
+      display: flex;
+      justify-content: center;
+      color: #FFFFFF;
+      font-weight: bold;
+      font-family: 'geomanist', sans-serif;
+      font-size: 2em;
+      align-items: center;
+  
+      img {
+        margin-right: 0.5em;
+      }
+    }
+
+}
+
+main {
+  section {
+    &.card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: max-content;
+      height: 100%;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 1em;
+      cursor: pointer;
+      border: 1px solid rgba(32, 33, 36, 0.12);
+      background-clip: padding-box;
+
+      transform: translate(0) scale(1, 1);
+      transition: all 0.2s ease-in-out;
+
+      @media screen and (max-width: 600px) {
+        grid-template-rows: 70% 30%;
+      }
+
+      &:hover,
+      &:focus-within {
+        transform: scale(1.02);
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover {
+        .text-container {
+          h3 {
+            a {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &:focus-within {
+        box-shadow: 0 0 0 3px #ff71ba, 0 0 0 6px rgba(0, 0, 0, 0.6);
+
+        a {
+          outline: 2px solid transparent;
+        }
+      }
+
+      .text-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: max-content;
+        padding: 1.5em;
+        height: 100%;
+
+        h3 {
+          padding: 0;
+          color: #403147;
+          font-size: 1.25em;
+          line-height: 1.4375em;
+
+          a {
+            color: #403147;
+            margin-bottom: 1.5em;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .image-container {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        background-color: #f8f8f8;
+        text-align: center;
+        border-top-right-radius: 1em;
+        border-top-left-radius: 1em;
+        padding-top: 3em;
+        padding-bottom: 3em;
+        height: 100%;
+        border-bottom: 1px solid rgba(32, 33, 36, 0.1);
+
+        img {
+          max-width: 60%;
+        }
+      }
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 0.3em 0 0 0;
+
+      p {
+        margin: 0;
+        color: #403147;
+      }
+
+      p.price {
+        font-size: 1em;
+        position: relative;
+        margin-right: 1.125em;
+        color: rgba(64, 49, 71, 0.8);
+
+        &:after {
+          content: '';
+          width: 4px;
+          height: 4px;
+          position: absolute;
+          top: 50%;
+          margin-top: -3px;
+          right: -0.7em;
+          background: rgba(64, 49, 71, 0.4);
+          border-radius: 50%;
+        }
+      }
+
+      
+    }
+  }
+}
+
+#root {
+    width: 100%;
+  }
+  
+
+.root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 100%;
+}
+
+.form-container {
+    //background-color: #ffffff;
+    border-radius: 1em;
+    padding: 2em;
+    text-align: center;
+    width:400px;
+ //   margin: 30vh 40vh 40vh 80vh;
+
+    form {
+      display: flex;
+      flex-direction: column;
+       
+
+        label {
+            justify-self: right;
+            align-self: start;
+            //color: rgba(64, 49, 71, 0.8);
+            color:#929292;
+            line-height: 2.375em;
+        }
+
+        input,select {
+         // margin-bottom: 0.5em;
+          width: 80%;
+          justify-self: left;
+          align-self: center;
+          background: #fff;
+          border: 1px solid #8b9099;
+          border-radius: 6px;
+          //color: rgba(32, 33, 36, 1);
+          font-size: 1rem;
+          line-height: 2.25em;
+          min-width: 10rem;
+          padding: 0 0.75em;
+          vertical-align: baseline;
+          font-family: 'geomanist', sans-serif;
+          transition: box-shadow 0.2s ease-in-out;
+          
+          box-shadow: none;
+          outline: 2px solid transparent;
+
+          &:focus {
+            outline: 2px solid transparent;
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8b9099;
+          }
+        }
+
+        select {
+          border-radius: 6px;
+          height: 36px;
+          box-shadow: none;
+          outline: 2px solid transparent;
+          //width:90%;
+
+          &:focus {
+            outline: 2px solid transparent;
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8b9099;
+          }
+        }
+
+        .button-container {
+            min-width: 10rem;
+            justify-self: left;
+            display: flex;
+            justify-content:center ;
+  
+            button {
+              display: inline-block;
+              padding: 0 3em;
+              line-height: 2em;
+              margin: 5px;
+              outline: 0;
+              border: 0;
+              border-radius: 5em;
+              font-size: 1rem;
+              cursor: pointer;
+              font-family: 'geomanist', sans-serif;
+              transition: box-shadow 0.2s ease-in-out;
+  
+              &:focus {
+                outline: 2px solid transparent;
+              }
+            }
+  
+            .ok {
+              background-color: #0f8261;
+              color: #fff;
+              box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+  
+              &:focus:not(:active) {
+                box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15), 0 0 0 2px #ffffff,
+                  0 0 0 4px #0f8261;
+              }
+  
+              &:active {
+                box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
+              }
+            }
+  
+            .warning {
+              background: #ab131c;
+              color: #fff;
+              box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+  
+              &:focus:not(:active) {
+                box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15), 0 0 0 2px #ffffff,
+                  0 0 0 4px #ab131c;
+              }
+  
+              &:active {
+                box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
+              }
+            }
+          }
+          
+          .error {
+            input,
+            select,
+            textarea {
+              border: 1px solid #d8474f;
+              background-color: rgba(216, 71, 79, 0.07);
+  
+              &:focus {
+                box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(216, 71, 79, 1);
+              }
+            }
+          }
+  
+          .error-wrapper {
+            min-height: 2em;
+            // padding-top: 0.2em;
+            //padding-bottom: 0.5em;
+  
+            span {
+              color: #ab131c;
+            }
+          }
+
+
+    }
+
+    @media screen and (max-width: 880px) {
+  
+        font-size: 1em;
+  
+        .image-container {
+          border-radius: 1em 1em 0 0;
+          display: flex;
+          justify-content: center;
+          max-width: 100vw;
+          padding-top: 2em;
+          padding-bottom: 2em;
+  
+          img {
+            max-width: 10em;
+          }
+        }
+  
+        .form-container {
+          border-radius: 0 0 1em 1em;
+          max-width: 100vw;
+          margin: 11em 1em 2em 1em;
+          width:50%;
+
+          form .error .error-wrapper > span {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    
+}

@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import LoginForm from './features/events/login/LoginForm';
+import {BrowserRouter as Router,Route,Switch,Redirect} from 'react-router-dom'
+import Menu from './features/events/menu/Menu';
+import { AppProvider } from './utils/AppContext';
+import PrivateRoute from './features/events/structure/PrivateRoute';
+import UserManagement from './features/events/menu/user-management/UserManagement';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <Router>
+  <AppProvider>
+    <Switch>
+    <Route path='/' component={LoginForm} exact/>
+    <PrivateRoute path='/menu' component={Menu}/>
+    <PrivateRoute path='/user-management' component={UserManagement}/>
+    <Redirect to='/' /> 
+    </Switch>
+  </AppProvider>
+  </Router>
+  //return <LoginForm />;
+)
 
 export default App;
